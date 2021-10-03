@@ -31,14 +31,14 @@ public class ReseniaServicioImp implements ReseniaServicio {
     @Override
     public List<Resenia> obtenerReseniasLibro(int idLibro) throws Exception {
 
-        List<Resenia>reseñasLibro = libroRepo.obtenerReseñasLibro(idLibro);
+        List<Resenia>reseniasLibro = libroRepo.obtenerReseniasLibro(idLibro);
 
-        if(reseñasLibro ==null){
+        if(reseniasLibro ==null){
 
             throw new Exception("No se encontraron las reseñas");
         }
 
-        return reseñasLibro ;
+        return reseniasLibro ;
     }
 
     @Override

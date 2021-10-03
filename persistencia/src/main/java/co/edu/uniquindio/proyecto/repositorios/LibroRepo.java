@@ -14,7 +14,7 @@ public interface LibroRepo extends JpaRepository<Libro,Integer> {
     @Query("select l from Libro l where l.autor like concat('%', :busquedaAutor,'%') and l.nombre like concat('%', :busquedaTitulo,'%')")
     List<Libro> busquedaLibrosTituloAutor(String busquedaAutor,String busquedaTitulo);
 
-    @Query("select l from Libro l where l.autor like concat('%', :busquedaAutor,'%') and l.nombre like concat('%', :busquedaTitulo,'%') and l.isbn like  concat('%', :busquedaIsbn,'%') ")
+    @Query("select l from Libro l where l.autor like concat('%', :busquedaAutor,'%') and l.nombre like concat('%', :busquedaTitulo,'%') and l.isbn= :busquedaIsbn ")
     List<Libro> busquedaLibrosCombinacion(String busquedaAutor,String busquedaTitulo,String busquedaIsbn);
 
     @Query("select l from Libro l where l.id = :idLibro")
@@ -24,5 +24,5 @@ public interface LibroRepo extends JpaRepository<Libro,Integer> {
     Integer obtenerCalificacionLibro(Integer idLibro);
 
     @Query("select r from Libro l join l.resenias r where l.id = :idLibro")
-    List<Resenia> obtenerReseñasLibro(int idLibro);
+    List<Resenia> obtenerReseniasLibro(int idLibro);
 }

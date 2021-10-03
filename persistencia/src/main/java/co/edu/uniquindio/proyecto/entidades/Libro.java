@@ -46,11 +46,26 @@ public class Libro implements Serializable {
     @ToString.Exclude
     private List<Resenia> resenias;
 
+    @OneToMany(mappedBy = "libro",fetch=FetchType.EAGER)
+    @ToString.Exclude
+    private List<Imagen> imagenes;
+
     @Builder
-    public Libro(String nombre, String autor, String isbn, Date fechaPublicacion) {
+    public Libro(String nombre, String autor, String isbn, Date fechaPublicacion,List<Imagen>imagenes) {
         this.nombre = nombre;
         this.autor = autor;
         this.isbn = isbn;
         this.fechaPublicacion = fechaPublicacion;
+        this.imagenes= imagenes;
+    }
+
+    public String getImagenPrincipal(){
+
+        if(imagenes!=null && !imagenes.isEmpty()){
+
+            return imagenes.get(0).getUrl();
+        }
+
+        return "default.png";
     }
 }

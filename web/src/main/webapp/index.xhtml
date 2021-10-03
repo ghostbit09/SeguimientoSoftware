@@ -44,6 +44,33 @@
             </div>
         </div>
 
+        <div>
+            <h:form id="form">
+                <p:carousel value="#{inicioBean.libros}" var="libro" responsive="true"
+                            itemStyle="text-align:center" style="margin: 2% 5%">
+                    <div class="product">
+                        <div class="product-grid-item p-p-5">
+                            <div class="product-grid-item-top">
+                                <div class="product-name"><h2><font color="#610B0B">#{libro.nombre}</font></h2></div>
+                                <div>
+                                    <span class="product-category"><font color="#000000">#{libro.isbn}</font></span>
+                                </div>
+                            </div>
+                            <div class="product-grid-item-content" style="margin: 5%">
+                                <img src="resources/img/#{libro.imagenPrincipal}" class="card-img-top" alt="..."
+                                     height="300"/>
+                                <br></br>
+                                <br></br>
+                                <p:commandButton value="Ver detalle" action="#{inicioBean.irADetalle(libro.id)}"
+                                                 styleClass="ui-button-raised" icon="pi pi-arrow-right"
+                                                 iconPos="right" style="background: #1a1e21"/>
+                            </div>
+                        </div>
+                    </div>
+                </p:carousel>
+            </h:form>
+        </div>
+
         <div class="card" style="margin: 2% 5%">
             <h1 style="margin: 2% 5%"><font color="#610B0B">Libros registrados</font></h1>
 
@@ -77,11 +104,9 @@
                                          styleClass="ui-button-raised" icon="pi pi-arrow-right"
                                          iconPos="right" style="background: #1a1e21"/>
                     </p:column>
-
                 </p:dataTable>
             </p:outputPanel>
         </div>
-
 
     </ui:define>
 </ui:composition>

@@ -38,7 +38,7 @@ public class BusquedaBean implements Serializable {
     @PostConstruct
     public void inicializar() throws Exception {
 
-        if (busquedaParam!=null && !busquedaParam.isEmpty() && busquedaParam2!=null && !busquedaParam2.isEmpty() && busquedaParam3.isEmpty()) {
+        if (busquedaParam!=null && !busquedaParam.isEmpty() && busquedaParam2!=null && !busquedaParam2.isEmpty() && busquedaParam3==null) {
 
             libros= libroServicio.obtenerLibrosTituloAutor(busquedaParam,busquedaParam2);
 
@@ -50,8 +50,6 @@ public class BusquedaBean implements Serializable {
 
     public String buscarSimple(){
         if(!busquedaAutor.isEmpty() && !busquedaTitulo.isEmpty()){
-
-            libros = new ArrayList<>();
 
             return "resultadoBusqueda?faces-redirect=true&amp;busquedaAutor="+busquedaAutor +"&busquedaTitulo="+busquedaTitulo;
         }

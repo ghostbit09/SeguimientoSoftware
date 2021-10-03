@@ -84,7 +84,7 @@ public class DetalleLibroBean implements Serializable {
     }
 
 
-    public void ingresarResenia(){
+    public String ingresarResenia(){
 
         Libro libroEncontrado;
 
@@ -95,9 +95,14 @@ public class DetalleLibroBean implements Serializable {
                 libroServicio.ingresarResenia(reseniaNueva,libroEncontrado);
                 this.reseniaNueva = new Resenia();
                 this.calificacionPromedio = libroServicio.obtenerCalificacionPromedio(id);
+
+            return "detalleLibro?faces-redirect=true&amp;libro="+idLibro;
+
         }catch (Exception e){
             e.printStackTrace();
         }
+
+        return "detalleLibro?faces-redirect=true&amp;libro="+idLibro;
 
     }
 

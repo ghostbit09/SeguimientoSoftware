@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -36,29 +37,30 @@ public class BusquedaBean implements Serializable {
 
     @PostConstruct
     public void inicializar() throws Exception {
-        if (busquedaParam!=null && !busquedaParam.isEmpty() && busquedaParam2!=null && !busquedaParam2.isEmpty()) {
 
-            System.out.println(busquedaParam);
+        if (busquedaParam!=null && !busquedaParam.isEmpty() && busquedaParam2!=null && !busquedaParam2.isEmpty() && busquedaParam3.isEmpty()) {
+
             libros= libroServicio.obtenerLibrosTituloAutor(busquedaParam,busquedaParam2);
 
-            System.out.println(libros);
-
         }else{
+
             libros = libroServicio.obtenerLibrosCombinacion(busquedaParam,busquedaParam2,busquedaParam3);
         }
     }
 
     public String buscarSimple(){
         if(!busquedaAutor.isEmpty() && !busquedaTitulo.isEmpty()){
-            return "resultadoBusqueda?faces-redirect=true&amp;busquedaAutor="+busquedaAutor +"&busquedaTitulo="+busquedaTitulo;
 
-            //return "/usuario/ruta?faces-redirect=true&amp;latitud="+lugar.getLatitud()+"&"+"longitud="+lugar.getLongitud();
+            libros = new ArrayList<>();
+
+            return "resultadoBusqueda?faces-redirect=true&amp;busquedaAutor="+busquedaAutor +"&busquedaTitulo="+busquedaTitulo;
         }
         return "";
     }
 
     public String buscarCombinada(){
-        if(!busquedaAutor.isEmpty() && !busquedaTitulo.isEmpty()){
+        if(!busquedaAutor.isEmpty() && !busquedaTitulo.isEmpty() && !busquedaIsbn.isEmpty()){
+
             return "resultadoBusqueda?faces-redirect=true&amp;busquedaAutor="+busquedaAutor +"&busquedaTitulo="+busquedaTitulo+"&busquedaIsbn="+busquedaIsbn;
         }
         return "";

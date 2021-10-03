@@ -99,7 +99,7 @@
                         </div>
 
                         <p:commandButton icon="pi pi-check" value="Guardar"
-                                         onclick="PF('dlg1').show()"
+                                         onclick="PF('dlg1').show()" update="@form, promedioLibro"
                                          style="margin-left: 7%; width: 40%;background: #1a1e21"/>
 
                         <p:button icon="pi pi-undo" value="Volver" styleClass="ui-button-secondary"
@@ -112,18 +112,23 @@
         <p:dialog id="dialogo" header="Verificación" widgetVar="dlg1" Height="400px" width="40%" showEffect="fade"
                   closeOnEscape="true">
             <h:form>
-
+                <p:card style="width: 100%; margin-bottom: 2em">
                 <h5>¿Esta seguro de publicar esta reseña?</h5>
 
                 <div style="margin-top: 5%;margin-left: 25%">
-                    <p:commandButton value="Aceptar"
-                                     action="#{detalleLibroBean.ingresarResenia}" onclick="PF('dlg1').hide()"
-                                     style="margin-left: 30%; width: 40%;background: #1a1e21"/>
 
-                    <p:commandButton style="min-width: 30%; margin-left: 5%" value="Cancelar"
-                                     styleClass="ui-button-raised ui-button-secondary ui-button-flat" update="@form"/>
+                    <p:commandButton value="Aceptar"
+                                     styleClass="ui-button-outlined ui-button-success"
+                                     action="#{detalleLibroBean.ingresarResenia}" onclick="PF('dlg1').hide()" update="@form"
+                                     style="margin: 5%; width: 100px"/>
+
+                    <p:commandButton style="margin: 5%; width: 100px" value="Cancelar"
+                                     styleClass="ui-button-outlined ui-button-danger"
+                                     onclick="PF('dlg1').hide()" update="@form"/>
+
                     <p:growl showDetail="true"/>
                 </div>
+                </p:card>
             </h:form>
         </p:dialog>
 

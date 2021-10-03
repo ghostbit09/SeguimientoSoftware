@@ -2,7 +2,7 @@ package co.edu.uniquindio.proyecto.bean;
 
 import co.edu.uniquindio.proyecto.entidades.Libro;
 import co.edu.uniquindio.proyecto.servicios.LibroServicio;
-import co.edu.uniquindio.proyecto.servicios.ReseñaServicio;
+import co.edu.uniquindio.proyecto.servicios.ReseniaServicio;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
@@ -16,15 +16,15 @@ import java.io.Serializable;
 public class LibroBean implements Serializable {
 
     private final LibroServicio libroServicio;
-    private final ReseñaServicio reseñaServicio;
+    private final ReseniaServicio reseniaServicio;
 
     @Getter
     @Setter
     private Libro libro;
 
-    public LibroBean(LibroServicio libroServicio, ReseñaServicio reseñaServicio) {
+    public LibroBean(LibroServicio libroServicio, ReseniaServicio reseniaServicio) {
         this.libroServicio = libroServicio;
-        this.reseñaServicio = reseñaServicio;
+        this.reseniaServicio = reseniaServicio;
     }
 
     @PostConstruct

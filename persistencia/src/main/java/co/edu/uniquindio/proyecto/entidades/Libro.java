@@ -34,7 +34,7 @@ public class Libro {
     @NotBlank
     private String isbn;
 
-    @Column(name = "descripcion",length =200)
+    @Column(name = "descripcion",length =1000)
     private String descripcion;
 
     @Temporal(TemporalType.DATE)
@@ -43,7 +43,7 @@ public class Libro {
 
     @OneToMany(mappedBy = "libro")
     @ToString.Exclude
-    private List<Reseña>reseñas;
+    private List<Resenia> resenias;
 
     @Builder
     public Libro(String nombre, String autor, String isbn, Date fechaPublicacion) {

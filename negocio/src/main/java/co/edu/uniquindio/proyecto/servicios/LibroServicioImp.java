@@ -1,9 +1,9 @@
 package co.edu.uniquindio.proyecto.servicios;
 
 import co.edu.uniquindio.proyecto.entidades.Libro;
-import co.edu.uniquindio.proyecto.entidades.Reseña;
+import co.edu.uniquindio.proyecto.entidades.Resenia;
 import co.edu.uniquindio.proyecto.repositorios.LibroRepo;
-import co.edu.uniquindio.proyecto.repositorios.ReseñaRepo;
+import co.edu.uniquindio.proyecto.repositorios.ReseniaRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,11 +13,11 @@ import java.util.Optional;
 public class LibroServicioImp implements LibroServicio{
 
     private final LibroRepo libroRepo;
-    private final ReseñaRepo reseñaRepo;
+    private final ReseniaRepo reseñaRepo;
 
-    public LibroServicioImp(LibroRepo libroRepo, ReseñaRepo reseñaRepo) {
+    public LibroServicioImp(LibroRepo libroRepo, ReseniaRepo reseniaRepo) {
         this.libroRepo = libroRepo;
-        this.reseñaRepo = reseñaRepo;
+        this.reseñaRepo = reseniaRepo;
     }
 
     @Override
@@ -57,7 +57,7 @@ public class LibroServicioImp implements LibroServicio{
     }
 
     @Override
-    public void ingresarReseña(Reseña r, Libro libro) throws Exception {
+    public void ingresarReseña(Resenia r, Libro libro) throws Exception {
 
         try {
             if (libro != null) {

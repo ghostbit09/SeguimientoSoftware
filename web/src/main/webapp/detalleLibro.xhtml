@@ -17,19 +17,24 @@
 
 
         <div  style="margin-top: 2%; margin-left: 10%; margin-right: 10%"  class="col">
-        <p:card style="width: 100%; margin-bottom: 2em">
+        <p:card style="width: 100%; text-align:center;margin-bottom: 2em">
         <f:facet name="title">
 
-            <h1> #{detalleLibroBean.libro.nombre} </h1>
+            <h1> <font color="#610B0B">#{detalleLibroBean.libro.nombre}</font></h1>
             <br></br>
-            <h4>Autor:          #{detalleLibroBean.libro.autor}</h4>
+            <h4><font color="#610B0B">Autor</font></h4>
+            <h5><font color="#000000">#{detalleLibroBean.libro.autor}</font></h5>
             <br></br>
-            <h4>Fecha de publicación:          #{detalleLibroBean.libro.fechaPublicacion}</h4>
+            <h4><font color="#610B0B">Fecha de publicación</font></h4>
+            <h5><font color="#000000">#{detalleLibroBean.libro.fechaPublicacion}</font></h5>
             <br></br>
-            <h4>ISBN:          #{detalleLibroBean.libro.isbn}</h4>
+            <h4><font color="#610B0B">ISBN</font></h4>
+            <h5><font color="#000000">#{detalleLibroBean.libro.isbn}</font></h5>
             <br></br>
-
-            <h4>Calificación promedio:</h4>
+            <h4><font color="#610B0B">Descripción</font></h4>
+            <h5><font color="#000000">#{detalleLibroBean.libro.descripcion}</font></h5>
+            <br></br>
+            <h4><font color="#610B0B">Calificación promedio:</font></h4>
             <div class="row">
                 <div class="col">
                     <p:rating id="promedioLibro" value="#{detalleLibroBean.calificacionPromedio}"
@@ -42,65 +47,85 @@
         </div>
 
         <div class="row">
-        <div style="margin-top: 2%; margin-left: 10%; margin-right: 10%" class="col">
+            <div style="margin-top: 2%; margin-left: 10%; margin-right: 10%" class="col">
 
-            <p:card style="width: 100%; margin-bottom: 2em">
-                <f:facet name="title">
-                    <h1> Reseñas</h1>
-                </f:facet>
+                <p:card style="width: 100%; margin-bottom: 2em">
+                    <f:facet name="title">
+                        <h1> <font color="#610B0B">Reseñas</font></h1>
+                    </f:facet>
 
-                <h:form>
-                    <p:dataScroller id="reseñas_table" value="#{detalleLibroBean.reseñasDetal}"
-                                    var="reseña" chunkSize="10"
-                                    mode="inline"
-                                    scrollHeight="300">
+                    <h:form>
+                        <p:dataScroller id="resenias_table" value="#{detalleLibroBean.reseñasDetal}"
+                                        var="resenia" chunkSize="10"
+                                        mode="inline"
+                                        scrollHeight="300">
 
-                        <div class="product">
-                            <div class="product-list-item p-p-5">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <p:graphicImage value="resources/img/usuario.png" height="70" width="70"/>
-                                    </div>
-                                    <div class="col">
-                                        <div class="product-list-detail">
-                                            <div class="product-description">#{reseña.reseña}</div>
-                                            <p:rating readonly="true" value="#{reseña.calificacion}"/>
-                                            <p:divider></p:divider>
+                            <div class="product">
+                                <div class="product-list-item p-p-5">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <p:graphicImage value="resources/img/usuario.png" height="70" width="70"/>
+                                        </div>
+                                        <div class="col">
+                                            <div class="product-list-detail">
+                                                <div class="product-description">#{resenia.resenia}</div>
+                                                <p:rating readonly="true" value="#{resenia.calificacion}"/>
+                                                <p:divider></p:divider>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </p:dataScroller>
+                        </p:dataScroller>
 
-                    <div class="row" style="margin-top: 2%; margin-bottom: 2%">
-                        <div class="col">
-                            <p:card style="margin-top: 2%">
-                                <f:facet name="title">
-                                    Añade tu reseña
-                                </f:facet>
-                                <p:inputTextarea rows="2" cols="30"
-                                                 value="#{detalleLibroBean.reseñaNueva.reseña}"/>
-                            </p:card>
-                        </div>
-                        <div class="col" style="margin-left: 20px; margin-top: 5%">
-                            <h:panelGrid columns="1" style="margin-bottom: 10px">
-                                <h4> Calificación: </h4>
-                                <p:rating value="#{detalleLibroBean.reseñaNueva.calificacion}"/>
-                            </h:panelGrid>
-                        </div>
-                    </div>
+                        <div class="row" style="margin-top: 2%; margin-bottom: 2%">
+                            <div class="col">
+                                <p:card style="margin-top: 2%">
+                                    <f:facet name="title">
+                                        <h4><font color="#610B0B"> Añade tu resenia</font></h4>
+                                    </f:facet>
+                                    <p:inputTextarea rows="2" cols="30" style="width: 100%"
+                                                     value="#{detalleLibroBean.reseniaNueva.resenia}"/>
+                                </p:card>
+                            </div>
+                            <div class="col" style="margin-left: 20px; margin-top: 2%; margin-bottom: 2%">
+                                <p:card style="margin-outside: 40px">
 
-                    <p:commandButton icon="pi pi-check" value="Guardar"
-                                     action="#{detalleLibroBean.ingresarReseña}"
-                                     style="margin-left: 7%; width: 40%"
-                                     update="@form,reseñas_table,promedioLibro"/>
-                    <p:button icon="pi pi-undo" value="Volver" styleClass="ui-button-secondary"
-                              style="margin-left: .5em; width: 40%" href="/index.xhtml"/>
-                </h:form>
-            </p:card>
+                                    <h4> <font color="#610B0B">Calificación:</font> </h4>
+                                    <p:rating value="#{detalleLibroBean.reseniaNueva.calificacion}"/>
+
+                                </p:card>
+                            </div>
+                        </div>
+
+                        <p:commandButton icon="pi pi-check" value="Guardar"
+                                         onclick="PF('dlg1').show()" update="@form,resenias_table,promedioLibro"
+                                         style="margin-left: 7%; width: 40%;background: #1a1e21"/>
+
+                        <p:button icon="pi pi-undo" value="Volver" styleClass="ui-button-secondary"
+                                  style="margin-left: .5em; width: 40%;background: #1a1e21" href="/index.xhtml"/>
+                    </h:form>
+                </p:card>
+            </div>
         </div>
-        </div>
+
+        <p:dialog id="dialogo" header="Verificación" widgetVar="dlg1" Height="400px" width="40%" showEffect="fade"
+                  closeOnEscape="true">
+            <h:form>
+
+                <h5>¿Esta seguro de publicar esta reseña?</h5>
+
+                <div style="margin-top: 5%;margin-left: 25%">
+                    <p:commandButton value="Aceptar"
+                                     action="#{detalleLibroBean.ingresarReseña}" onclick="PF('dlg1').hide()" update="form:sin_respuestaTable,favoritosTable"
+                                     style="margin-left: 30%; width: 40%;background: #1a1e21"/>
+
+                    <p:commandButton style="min-width: 30%; margin-left: 5%" value="Cancelar"
+                                     styleClass="ui-button-raised ui-button-secondary ui-button-flat" update="@form"/>
+                    <p:growl showDetail="true"/>
+                </div>
+            </h:form>
+        </p:dialog>
 
     </ui:define>
 </ui:composition>

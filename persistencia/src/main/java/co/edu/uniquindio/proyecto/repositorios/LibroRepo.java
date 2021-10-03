@@ -1,7 +1,7 @@
 package co.edu.uniquindio.proyecto.repositorios;
 
 import co.edu.uniquindio.proyecto.entidades.Libro;
-import co.edu.uniquindio.proyecto.entidades.Reseña;
+import co.edu.uniquindio.proyecto.entidades.Resenia;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -20,9 +20,9 @@ public interface LibroRepo extends JpaRepository<Libro,Integer> {
     @Query("select l from Libro l where l.id = :idLibro")
     Libro obtenerLibro(int idLibro);
 
-    @Query("select avg(r.calificacion) from Reseña r where r.libro.id = :idLibro")
+    @Query("select avg(r.calificacion) from Resenia r where r.libro.id = :idLibro")
     Integer obtenerCalificacionLibro(Integer idLibro);
 
-    @Query("select r from Libro l join l.reseñas r where l.id = :idLibro")
-    List<Reseña> obtenerReseñasLibro(int idLibro);
+    @Query("select r from Libro l join l.resenias r where l.id = :idLibro")
+    List<Resenia> obtenerReseñasLibro(int idLibro);
 }

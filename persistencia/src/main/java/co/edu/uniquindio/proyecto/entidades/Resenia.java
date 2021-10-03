@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Reseña {
+public class Resenia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

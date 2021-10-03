@@ -37,10 +37,10 @@ Un usuario puede calificar los libros de 1 (malo) a 5 (bueno). El libro no tiene
 *Vincular los métodos mencionados anteriormente de la lógica de negocio con la capa web.
 
 ## Historia 4:
-Un usuario puede escribir una reseña de un libro. Puede ver la reseña antes de enviarla. El libro no tiene que ser uno que el usuario haya comprado de nosotros.
+Un usuario puede escribir una resenia de un libro. Puede ver la resenia antes de enviarla. El libro no tiene que ser uno que el usuario haya comprado de nosotros.
 
 ## Tareas:
-*Implementar un método que permita agregar una reseña a un libro en específico. 
-*Crear un apartado en la ventana del detalle que permita agregar una reseña a un libro. 
-*Mostrar un cuadro de texto con la reseña que se desea agregar y a su vez que permita al usuario validar si está seguro de agregarla o no. 
+*Implementar un método que permita agregar una resenia a un libro en específico. 
+*Crear un apartado en la ventana del detalle que permita agregar una resenia a un libro. 
+*Mostrar un cuadro de texto con la resenia que se desea agregar y a su vez que permita al usuario validar si está seguro de agregarla o no. 
 *Vincular el método mencionado anteriormente de la lógica de negocio con la capa web.

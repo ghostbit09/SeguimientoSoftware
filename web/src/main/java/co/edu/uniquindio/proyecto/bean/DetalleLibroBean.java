@@ -1,9 +1,9 @@
 package co.edu.uniquindio.proyecto.bean;
 
 import co.edu.uniquindio.proyecto.entidades.Libro;
-import co.edu.uniquindio.proyecto.entidades.Reseña;
+import co.edu.uniquindio.proyecto.entidades.Resenia;
 import co.edu.uniquindio.proyecto.servicios.LibroServicio;
-import co.edu.uniquindio.proyecto.servicios.ReseñaServicio;
+import co.edu.uniquindio.proyecto.servicios.ReseniaServicio;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +25,13 @@ public class DetalleLibroBean implements Serializable {
 
     @Getter
     @Setter
-    private Reseña reseñaNueva;
+    private Resenia reseniaNueva;
 
     @Getter @Setter
     private int calificacionPromedio;
 
     @Getter @Setter
-    private List<Reseña> reseñasDetal;
+    private List<Resenia> reseñasDetal;
 
     @Getter
     @Setter
@@ -41,12 +41,12 @@ public class DetalleLibroBean implements Serializable {
     private LibroServicio libroServicio;
 
     @Autowired
-    private ReseñaServicio reseñaServicio;
+    private ReseniaServicio reseniaServicio;
 
     @PostConstruct
     public void inicializar(){
 
-        this.reseñaNueva = new Reseña();
+        this.reseniaNueva = new Resenia();
 
         if (idLibro!=null && !"".equals(idLibro)){
             try {
@@ -62,18 +62,18 @@ public class DetalleLibroBean implements Serializable {
         }
     }
 
-    public List<Reseña> obtenerReseñas(){
+    public List<Resenia> obtenerReseñas(){
 
-        List<Reseña> reseñas;
+        List<Resenia> resenias;
 
         if (idLibro!=null){
 
             int id = Integer.parseInt(idLibro);
 
             try {
-                reseñas = reseñaServicio.obtenerReseñasLibro(id);
+                resenias = reseniaServicio.obtenerReseñasLibro(id);
 
-                return reseñas;
+                return resenias;
 
             }catch (Exception e){
                 e.printStackTrace();
@@ -92,12 +92,13 @@ public class DetalleLibroBean implements Serializable {
             int id = Integer.parseInt(idLibro);
             libroEncontrado = libroServicio.obtenerLibro(id);
 
-                libroServicio.ingresarReseña(reseñaNueva,libroEncontrado);
-                this.reseñaNueva = new Reseña();
+                libroServicio.ingresarReseña(reseniaNueva,libroEncontrado);
+                this.reseniaNueva = new Resenia();
                 this.calificacionPromedio = libroServicio.obtenerCalificacionPromedio(id);
         }catch (Exception e){
             e.printStackTrace();
         }
+
     }
 
 

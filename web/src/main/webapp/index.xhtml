@@ -16,11 +16,11 @@
 
 
         <div class="card" style="margin: 2% 5%">
-            <h1 style="margin: 2% 5%">Busqueda</h1>
+            <h1 style="margin: 2% 5%"><font color="#610B0B">Busqueda</font></h1>
 
-            <h4 style="margin-left: 5%"> Busqueda simple: Para esta busqueda debe ingresar una palabra en los campos de autor y titulo</h4>
+            <h4 style="margin-left: 5%"> <font color="#610B0B">Busqueda simple: </font>Para esta busqueda debe ingresar una palabra en los campos de autor y titulo</h4>
             <br></br>
-            <h4 style="margin-left: 5%"> Busqueda combinada: Para esta busqueda debe ingresar una palabra en todos los campos de texto</h4>
+            <h4 style="margin-left: 5%"> <font color="#610B0B">Busqueda combinada: </font>Para esta busqueda debe ingresar una palabra en todos los campos de texto</h4>
             <br></br>
 
             <div class="d-flex">
@@ -34,19 +34,18 @@
                     <p:inputText style="margin-left: 20px" styleClass="form-control me-2 input-search"
                                  placeholder="Ingrese el ISBN"
                                  value="#{busquedaBean.busquedaIsbn}"/>
-                    <p:commandButton style="margin-left: 20px" styleClass="btn btn-outline-light btn-buscar" value="Busqueda simple"
+                    <p:commandButton style="margin-left: 20px;background: #1a1e21" styleClass="btn btn-outline-light btn-buscar" value="Busqueda simple"
                                      action="#{busquedaBean.buscarSimple}"/>
 
 
-                    <p:commandButton style="margin-left: 20px" styleClass="btn btn-outline-light btn-buscar" value="Busqueda combinada"
+                    <p:commandButton style="margin-left: 20px;background: #1a1e21" styleClass="btn btn-outline-light btn-buscar" value="Busqueda combinada"
                                      action="#{busquedaBean.buscarCombinada}"/>
                 </h:form>
             </div>
-
         </div>
 
         <div class="card" style="margin: 2% 5%">
-            <h1 style="margin: 2% 5%">Libros registrados</h1>
+            <h1 style="margin: 2% 5%"><font color="#610B0B">Libros registrados</font></h1>
 
             <p:outputPanel id="libros" style="margin: 1% 5%">
                 <p:dataTable value="#{inicioBean.libros}" var="libro" id="librosTable">
@@ -57,13 +56,6 @@
 
                     <p:column headerText="Autor">
                         <h:outputText value="#{libro.autor}"/>
-                    </p:column>
-
-                    <p:column headerText="Descripcion">
-                        <f:facet name="header">
-                            <h:outputText value="Descripcion"/>
-                        </f:facet>
-                        <h:outputText value="#{libro.descripcion}"/>
                     </p:column>
 
                     <p:column headerText="ISBN">
@@ -83,7 +75,7 @@
                     <p:column headerText="Ver detalle">
                         <p:commandButton value="Ver detalle" action="#{inicioBean.irADetalle(libro.id)}"
                                          styleClass="ui-button-raised" icon="pi pi-arrow-right"
-                                         iconPos="right"/>
+                                         iconPos="right" style="background: #1a1e21"/>
                     </p:column>
 
                 </p:dataTable>

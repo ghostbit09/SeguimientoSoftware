@@ -15,20 +15,34 @@
     <ui:define name="content">
 
         <div class="row">
+
+            <div class="col">
+                <p:card style="width: 85%; margin: 10%;text-align:center;margin-bottom: 2em" >
+                    <img src="resources/img/Libros.png" alt=""/>
+                    <h6><font color="#610B0B">El libro que busco es </font> <i class="pi pi-arrow-right"/></h6>
+                </p:card>
+            </div>
+
             <div class="col">
                 <p:carousel id="carusel" value="#{busquedaBean.libros}" var="libro"
                             itemStyle="text-align:center" numVisible="1" easing="easeOutBounce"
-                            style="width: 500px;margin: 5%" circular="true">
+                            style="width: 500px;margin: 10%" circular="true">
                     <div class="product">
-                        <div class="product-grid-item p-p-5">
-                            <div class="product-grid-item-content" style="margin: 5%">
-                                <div class="product-name"> <h2>#{libro.nombre}</h2></div>
-                                <i class="pi pi-map-marker product-category-icon"/>
-                                <span class="product-category">#{libro.autor}</span>
-                                <div class="product-description">#{libro.isbn}</div>
+                        <h1><font color="#610B0B">#{libro.nombre}</font></h1>
 
-                            </div>
-                        </div>
+                        <br></br>
+                        <h4><font color="#610B0B">Autor</font></h4>
+                        <h5><font color="#000000">#{libro.autor}</font></h5>
+                        <br></br>
+                        <h4><font color="#610B0B">Fecha de publicación</font></h4>
+                        <h5><font color="#000000">#{libro.fechaPublicacion}</font></h5>
+                        <br></br>
+                        <h4><font color="#610B0B">ISBN</font></h4>
+                        <h5><font color="#000000">#{libro.isbn}</font></h5>
+                        <br></br>
+                        <h4><font color="#610B0B">Descripción</font></h4>
+                        <h5><font color="#000000">#{libro.descripcion}</font></h5>
+                        <br></br>
                     </div>
                 </p:carousel>
             </div>

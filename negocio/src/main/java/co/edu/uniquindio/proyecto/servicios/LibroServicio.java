@@ -1,7 +1,7 @@
 package co.edu.uniquindio.proyecto.servicios;
 
 import co.edu.uniquindio.proyecto.entidades.Libro;
-import co.edu.uniquindio.proyecto.entidades.Reseña;
+import co.edu.uniquindio.proyecto.entidades.Resenia;
 
 import java.util.List;
 
@@ -17,6 +17,6 @@ public interface LibroServicio {
 
     Libro obtenerLibro(int id) throws Exception;
 
-    void ingresarReseña(Reseña r, Libro libro) throws Exception;
+    void ingresarReseña(Resenia r, Libro libro) throws Exception;
 
 }

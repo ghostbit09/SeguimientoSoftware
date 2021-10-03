@@ -1,13 +1,3 @@
-#header .btn-buscar {
-    color: #f8f9fa;
-    border-color: #f8f9fa;
-    background: none;
-}
-
-#header .btn-buscar.ui-state-hover {
-    color: black;
-    background: white;
-}
 
 .input-search {
     width: 250px;

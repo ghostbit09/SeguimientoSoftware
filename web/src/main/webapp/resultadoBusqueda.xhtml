@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xml:lang="en" lang="en">
+
+<ui:composition template="/WEB-INF/plantilla.xhtml">
+
+    <ui:define name="title">Libro | Busqueda</ui:define>
+    <ui:define name="content">
+
+        <div class="row">
+            <div class="col">
+                <p:carousel id="carusel" value="#{busquedaBean.libros}" var="libro"
+                            itemStyle="text-align:center" numVisible="1" easing="easeOutBounce"
+                            style="width: 500px;margin: 5%" circular="true">
+                    <div class="product">
+                        <div class="product-grid-item p-p-5">
+                            <div class="product-grid-item-content" style="margin: 5%">
+                                <div class="product-name"> <h2>#{libro.nombre}</h2></div>
+                                <i class="pi pi-map-marker product-category-icon"/>
+                                <span class="product-category">#{libro.autor}</span>
+                                <div class="product-description">#{libro.isbn}</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </p:carousel>
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition>
+</html>

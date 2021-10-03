@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xml:lang="en" lang="en">
+
+
+<ui:composition template="/WEB-INF/plantilla.xhtml">
+
+    <ui:define name="title">Libro | Detalle</ui:define>
+    <ui:define name="content">
+
+
+        <div  style="margin-top: 2%; margin-left: 10%; margin-right: 10%"  class="col">
+        <p:card style="width: 100%; margin-bottom: 2em">
+        <f:facet name="title">
+
+            <h1> #{detalleLibroBean.libro.nombre} </h1>
+            <br></br>
+            <h4>Autor:          #{detalleLibroBean.libro.autor}</h4>
+            <br></br>
+            <h4>Fecha de publicación:          #{detalleLibroBean.libro.fechaPublicacion}</h4>
+            <br></br>
+            <h4>ISBN:          #{detalleLibroBean.libro.isbn}</h4>
+            <br></br>
+
+            <h4>Calificación promedio:</h4>
+            <div class="row">
+                <div class="col">
+                    <p:rating id="promedioLibro" value="#{detalleLibroBean.calificacionPromedio}"
+                              readonly="true"/>
+                </div>
+            </div>
+
+        </f:facet>
+        </p:card>
+        </div>
+
+        <div class="row">
+        <div style="margin-top: 2%; margin-left: 10%; margin-right: 10%" class="col">
+
+            <p:card style="width: 100%; margin-bottom: 2em">
+                <f:facet name="title">
+                    <h1> Reseñas</h1>
+                </f:facet>
+
+                <h:form>
+                    <p:dataScroller id="reseñas_table" value="#{detalleLibroBean.reseñasDetal}"
+                                    var="reseña" chunkSize="10"
+                                    mode="inline"
+                                    scrollHeight="300">
+
+                        <div class="product">
+                            <div class="product-list-item p-p-5">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p:graphicImage value="resources/img/usuario.png" height="70" width="70"/>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product-list-detail">
+                                            <div class="product-description">#{reseña.reseña}</div>
+                                            <p:rating readonly="true" value="#{reseña.calificacion}"/>
+                                            <p:divider></p:divider>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </p:dataScroller>
+
+                    <div class="row" style="margin-top: 2%; margin-bottom: 2%">
+                        <div class="col">
+                            <p:card style="margin-top: 2%">
+                                <f:facet name="title">
+                                    Añade tu reseña
+                                </f:facet>
+                                <p:inputTextarea rows="2" cols="30"
+                                                 value="#{detalleLibroBean.reseñaNueva.reseña}"/>
+                            </p:card>
+                        </div>
+                        <div class="col" style="margin-left: 20px; margin-top: 5%">
+                            <h:panelGrid columns="1" style="margin-bottom: 10px">
+                                <h4> Calificación: </h4>
+                                <p:rating value="#{detalleLibroBean.reseñaNueva.calificacion}"/>
+                            </h:panelGrid>
+                        </div>
+                    </div>
+
+                    <p:commandButton icon="pi pi-check" value="Guardar"
+                                     action="#{detalleLibroBean.ingresarReseña}"
+                                     style="margin-left: 7%; width: 40%"
+                                     update="@form,reseñas_table,promedioLibro"/>
+                    <p:button icon="pi pi-undo" value="Volver" styleClass="ui-button-secondary"
+                              style="margin-left: .5em; width: 40%" href="/index.xhtml"/>
+                </h:form>
+            </p:card>
+        </div>
+        </div>
+
+    </ui:define>
+</ui:composition>
+</html>

@@ -13,11 +13,11 @@ import java.util.Optional;
 public class LibroServicioImp implements LibroServicio{
 
     private final LibroRepo libroRepo;
-    private final ReseniaRepo reseñaRepo;
+    private final ReseniaRepo reseniaRepo;
 
     public LibroServicioImp(LibroRepo libroRepo, ReseniaRepo reseniaRepo) {
         this.libroRepo = libroRepo;
-        this.reseñaRepo = reseniaRepo;
+        this.reseniaRepo = reseniaRepo;
     }
 
     @Override
@@ -57,13 +57,13 @@ public class LibroServicioImp implements LibroServicio{
     }
 
     @Override
-    public void ingresarReseña(Resenia r, Libro libro) throws Exception {
+    public void ingresarResenia(Resenia r, Libro libro) throws Exception {
 
         try {
             if (libro != null) {
 
                 r.setLibro(libro);
-                reseñaRepo.save(r);
+                reseniaRepo.save(r);
             }
         }catch (Exception e){
             throw new Exception(e.getMessage());

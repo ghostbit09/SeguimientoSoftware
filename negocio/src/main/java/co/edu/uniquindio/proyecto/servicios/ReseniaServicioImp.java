@@ -10,26 +10,26 @@ import java.util.List;
 @Service
 public class ReseniaServicioImp implements ReseniaServicio {
 
-    private final ReseniaRepo reseñaRepo;
+    private final ReseniaRepo reseniaRepo;
     private final LibroRepo libroRepo;
 
     public ReseniaServicioImp(ReseniaRepo reseniaRepo, LibroRepo libroRepo) {
-        this.reseñaRepo = reseniaRepo;
+        this.reseniaRepo = reseniaRepo;
         this.libroRepo = libroRepo;
     }
 
     @Override
-    public Resenia registrarReseña(Resenia resenia) throws Exception {
+    public Resenia registrarResenia(Resenia resenia) throws Exception {
 
         try{
-            return reseñaRepo.save(resenia);
+            return reseniaRepo.save(resenia);
         }catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
 
     @Override
-    public List<Resenia> obtenerReseñasLibro(int idLibro) throws Exception {
+    public List<Resenia> obtenerReseniasLibro(int idLibro) throws Exception {
 
         List<Resenia>reseñasLibro = libroRepo.obtenerReseñasLibro(idLibro);
 
@@ -42,8 +42,8 @@ public class ReseniaServicioImp implements ReseniaServicio {
     }
 
     @Override
-    public List<Resenia> listarReseñas() {
-        return reseñaRepo.findAll();
+    public List<Resenia> listarResenias() {
+        return reseniaRepo.findAll();
     }
 
 }

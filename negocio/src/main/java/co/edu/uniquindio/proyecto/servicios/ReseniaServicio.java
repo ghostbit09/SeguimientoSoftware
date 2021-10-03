@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface ReseniaServicio {
 
-    Resenia registrarReseña(Resenia resenia) throws Exception;
+    Resenia registrarResenia(Resenia resenia) throws Exception;
 
-    List<Resenia> obtenerReseñasLibro(int idLibro) throws Exception;
+    List<Resenia> obtenerReseniasLibro(int idLibro) throws Exception;
 
-    List<Resenia> listarReseñas();
+    List<Resenia> listarResenias();
 }

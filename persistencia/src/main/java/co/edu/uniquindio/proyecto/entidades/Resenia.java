@@ -7,13 +7,14 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Resenia {
+public class Resenia implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,9 +23,9 @@ public class Resenia {
     @Column(name = "calificacion")
     private int calificacion;
 
-    @Column(name = "reseña")
+    @Column(name = "resenia")
     @Size(max = 200, message = "El comentario no puede superar los 200 caracteres")
-    private String reseña;
+    private String resenia;
 
     @ManyToOne
     private Libro libro;

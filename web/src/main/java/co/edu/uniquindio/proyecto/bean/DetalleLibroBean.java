@@ -31,7 +31,7 @@ public class DetalleLibroBean implements Serializable {
     private int calificacionPromedio;
 
     @Getter @Setter
-    private List<Resenia> reseñasDetal;
+    private List<Resenia> reseniasDetal;
 
     @Getter
     @Setter
@@ -53,7 +53,7 @@ public class DetalleLibroBean implements Serializable {
                 int id = Integer.parseInt(idLibro);
 
                 this.libro = libroServicio.obtenerLibro(id);
-                this.reseñasDetal =  obtenerReseñas();
+                this.reseniasDetal =  obtenerResenias();
                 this.calificacionPromedio = libroServicio.obtenerCalificacionPromedio(id);
 
             } catch (Exception e) {
@@ -62,7 +62,7 @@ public class DetalleLibroBean implements Serializable {
         }
     }
 
-    public List<Resenia> obtenerReseñas(){
+    public List<Resenia> obtenerResenias(){
 
         List<Resenia> resenias;
 
@@ -71,7 +71,7 @@ public class DetalleLibroBean implements Serializable {
             int id = Integer.parseInt(idLibro);
 
             try {
-                resenias = reseniaServicio.obtenerReseñasLibro(id);
+                resenias = reseniaServicio.obtenerReseniasLibro(id);
 
                 return resenias;
 
@@ -84,7 +84,7 @@ public class DetalleLibroBean implements Serializable {
     }
 
 
-    public void ingresarReseña(){
+    public void ingresarResenia(){
 
         Libro libroEncontrado;
 
@@ -92,7 +92,7 @@ public class DetalleLibroBean implements Serializable {
             int id = Integer.parseInt(idLibro);
             libroEncontrado = libroServicio.obtenerLibro(id);
 
-                libroServicio.ingresarReseña(reseniaNueva,libroEncontrado);
+                libroServicio.ingresarResenia(reseniaNueva,libroEncontrado);
                 this.reseniaNueva = new Resenia();
                 this.calificacionPromedio = libroServicio.obtenerCalificacionPromedio(id);
         }catch (Exception e){

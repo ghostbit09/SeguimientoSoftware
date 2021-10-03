@@ -55,7 +55,7 @@
                     </f:facet>
 
                     <h:form>
-                        <p:dataScroller id="resenias_table" value="#{detalleLibroBean.reseñasDetal}"
+                        <p:dataScroller id="resenias_table" value="#{detalleLibroBean.reseniasDetal}"
                                         var="resenia" chunkSize="10"
                                         mode="inline"
                                         scrollHeight="300">
@@ -99,7 +99,7 @@
                         </div>
 
                         <p:commandButton icon="pi pi-check" value="Guardar"
-                                         onclick="PF('dlg1').show()" update="@form,resenias_table,promedioLibro"
+                                         onclick="PF('dlg1').show()"
                                          style="margin-left: 7%; width: 40%;background: #1a1e21"/>
 
                         <p:button icon="pi pi-undo" value="Volver" styleClass="ui-button-secondary"
@@ -117,7 +117,7 @@
 
                 <div style="margin-top: 5%;margin-left: 25%">
                     <p:commandButton value="Aceptar"
-                                     action="#{detalleLibroBean.ingresarReseña}" onclick="PF('dlg1').hide()" update="form:sin_respuestaTable,favoritosTable"
+                                     action="#{detalleLibroBean.ingresarResenia}" onclick="PF('dlg1').hide()"
                                      style="margin-left: 30%; width: 40%;background: #1a1e21"/>
 
                     <p:commandButton style="min-width: 30%; margin-left: 5%" value="Cancelar"

@@ -17,6 +17,6 @@ public interface LibroServicio {
 
     Libro obtenerLibro(int id) throws Exception;
 
-    void ingresarReseña(Resenia r, Libro libro) throws Exception;
+    void ingresarResenia(Resenia r, Libro libro) throws Exception;
 
 }

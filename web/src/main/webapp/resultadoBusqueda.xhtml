@@ -17,9 +17,21 @@
         <div class="row">
 
             <div class="col">
-                <p:card style="width: 85%; margin: 10%;text-align:center;margin-bottom: 2em" >
-                    <img src="resources/img/Libros.png" alt=""/>
-                    <h6><font color="#610B0B">El libro que busco es </font> <i class="pi pi-arrow-right"/></h6>
+                <p:card  style="width: 85%; margin: 10%;text-align:center;margin-bottom: 2em" >
+                    <div class="col">
+                        <p:carousel id="caruse" value="#{busquedaBean.libros}" var="libro"
+                                    itemStyle="text-align:center" numVisible="1" easing="easeOutBounce"
+                                    style="width: 500px;margin: 5%" circular="true">
+                            <div class="product">
+                                <div class="product-grid-item p-p-5">
+                                    <div class="product-grid-item-content" style="margin: 5%">
+                                        <img src="resources/img/#{libro.imagenPrincipal}" class="card-img-top" alt="..."
+                                             height="300"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </p:carousel>
+                    </div>
                 </p:card>
             </div>
 
